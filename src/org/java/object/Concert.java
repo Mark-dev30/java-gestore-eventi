@@ -37,18 +37,16 @@ public class Concert extends Event{
 	
 	private String getStringDateHour() {
 		String date = getDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy", Locale.ITALIAN));
-		String hour = this.hour.toString();
-		return  "Data: " + date + " Ora: "+ hour;
+		return  "Data: " + date + " Ora: "+ this.hour;
 	}
 	
 	private String getStringPrice() {
-		String price = this.price.toString();
-		return "Prezzo: " + price;
+		return "Prezzo: " + String.format("%,.2f", getPrice()) + "€";
 	}
 	@Override
 	public String toString() {
 		
-		return getStringDateHour() + " - " + "Titolo: " +  getTitle() + getStringPrice();
+		return getStringDateHour() + " - " + "Titolo: " +  getTitle() + " - " + getStringPrice();
 	}
 	
 }
